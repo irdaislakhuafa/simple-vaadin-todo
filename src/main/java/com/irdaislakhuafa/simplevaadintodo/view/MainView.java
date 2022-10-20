@@ -32,14 +32,9 @@ public class MainView extends VerticalLayout {
         final var todoList = new VerticalLayout();
 
         // input text
-        var inputText = new TextField();
-        inputText.setPlaceholder("Input Text Here!");
+        var inputText = new TextField("Input Text Here!");
+        inputText.setPlaceholder("Here!");
         inputText.setAutocapitalize(Autocapitalize.WORDS);
-        inputText.addValueChangeListener((v) -> {
-            if (v.getValue().contains("babi")) {
-                Notification.show(String.format("Word \"%s\" not allowed", v.getValue()), notifDuration, notifPosition);
-            }
-        });
 
         // add button for todo list
         final var addButton = new Button(new Icon(VaadinIcon.PLUS));
@@ -50,14 +45,22 @@ public class MainView extends VerticalLayout {
                 return;
             }
 
+            if (inputText.getValue().contains("babi")) {
+                Notification.show(
+                        String.format("Word \"%s\" not allowed", inputText.getValue()),
+                        notifDuration,
+                        notifPosition);
+                return;
+            }
+
             final var checkBox = new Checkbox(text);
             todoList.add(checkBox);
             inputText.setValue("");
         });
-        addButton.addClickShortcut(Key.ENTER);
 
         final var inputTodoList = new HorizontalLayout(inputText, addButton);
         inputTodoList.addClassName("center");
+        inputTodoList.setAlignItems(Alignment.END);
         add(inputTodoList);
 
         add(new HorizontalLayout(todoList) {
