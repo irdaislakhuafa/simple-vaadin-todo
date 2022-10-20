@@ -1,6 +1,6 @@
 package com.irdaislakhuafa.simplevaadintodo.view;
 
-import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -52,7 +52,9 @@ public class MainView extends VerticalLayout {
 
             final var checkBox = new Checkbox(text);
             todoList.add(checkBox);
+            inputText.setValue("");
         });
+        addButton.addClickShortcut(Key.ENTER);
 
         final var inputTodoList = new HorizontalLayout(inputText, addButton);
         inputTodoList.addClassName("center");
