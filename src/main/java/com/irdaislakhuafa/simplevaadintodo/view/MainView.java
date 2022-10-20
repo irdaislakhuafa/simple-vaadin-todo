@@ -1,6 +1,6 @@
 package com.irdaislakhuafa.simplevaadintodo.view;
 
-import com.vaadin.flow.component.*;
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -20,7 +20,7 @@ import com.vaadin.flow.router.Route;
 @PageTitle(value = "Simple Vaadin Todo")
 @CssImport(value = "./style.css")
 public class MainView extends VerticalLayout {
-    private final int notifDuration = (1000 * 5);
+    private final int notifDuration = (1000 * 2);
     private final Position notifPosition = Position.BOTTOM_CENTER;
 
     public MainView() {
