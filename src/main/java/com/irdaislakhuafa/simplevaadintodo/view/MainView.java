@@ -1,6 +1,5 @@
 package com.irdaislakhuafa.simplevaadintodo.view;
 
-import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -11,15 +10,18 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.component.textfield.Autocapitalize;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.PWA;
 
+@PWA(name = "Simple Vaadin Todo | PWA", shortName = "SVT")
 @Route(value = "/")
 @PageTitle(value = "Simple Vaadin Todo")
 @CssImport(value = "./style.css")
-public class MainView extends VerticalLayout {
+public class MainView extends VerticalLayout implements AppShellConfigurator {
     private final int notifDuration = (1000 * 2);
     private final Position notifPosition = Position.BOTTOM_CENTER;
 
